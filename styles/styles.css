@@ -1,0 +1,79 @@
+/*cstyle for CodePlayer*/
+
+/*	<style>*/
+		*{
+			margin: 0;
+			padding: 0;
+		}
+
+		#header {
+			height: 36px;
+			width: 100%;
+			background-color: lightgray;
+			float: left;
+		}
+
+		#tab {
+			width: 250px;
+			margin: 0 auto;
+			margin-top: -20px;
+		}
+
+		.tab {
+			float: left;
+			border-right: none;
+			text-decoration: none;
+			border: 1px solid gray;
+			/*border-radius: 5px;*/
+			padding: 5px;
+			color: black;
+		}
+
+		h1 {
+			position: relative;
+			top: 5px;
+			font-size: 20px;
+			/*font-weight: bold;*/
+		}
+
+		#html {
+			border-top-left-radius: 5px;
+			border-bottom-left-radius: 5px;
+		}
+
+		#output {
+			border-top-right-radius: 5px;
+			border-bottom-right-radius: 5px;
+		}
+
+		#htmlTextarea {
+			/*width: 25%;*/
+			/*height: auto;*/
+			resize: none;
+		}
+
+		#htmlContainer {
+			/*width: 25%;*/
+			/*height: 100%;*/
+		}
+
+		.active {
+			background-color: blue;
+			resize: none;
+		}
+
+		.highlitedButton {
+			background-color: grey;
+		}
+		
+		.panel {
+			float: left;
+			/*width: 50%;*/
+			resize: none;
+		}
+
+		.hidden {
+			display: none;
+		}
+
+/*	</style>*/

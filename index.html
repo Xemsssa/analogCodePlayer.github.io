@@ -1,0 +1,110 @@
+
+<!-- TODO buttons-->
+<!-- TODO css styling-->
+<!-- TODO css styling separate file-->
+<!-- TODO js separate file-->
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+	<meta charset="UTF-8">
+
+	<title>Project</title>
+
+    <link rel="stylesheet" href="styles/styles.css">
+	<script type="text/javascript" src="scripts/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+	<div id="header">
+
+		<div id="logo"><h1>CodePlayer</h1></div>
+
+		<div id="tab">
+
+<!--
+                <a href="#">
+                    <div  class="tab" id="html">
+                        HTML
+                    </div>
+                </a>
+-->
+            <a href="#" class="tab" id="html"><div>HTML</div></a>
+            <a href="#"><div class="tab" id="css">CSS</div></a>
+            <a href="#"><div class="tab" id="javascript">JavaScript</div></a>
+            <a href="#"><div class="tab" id="output">Output</div></a>
+
+		</div>
+
+	</div>
+
+	<div id="htmlContainer">
+
+		<textarea name="htmlTextarea" class="panel" id="htmlTextarea"><p>Hello World!</p></textarea>
+		<textarea name="cssTextarea" class="panel hidden" id="cssTextarea">p {color: green;}</textarea>
+		<textarea name="javascriptTextarea" class="panel hidden" id="javascriptTextarea">getElementById("htmlTextarea").innerHTML = "HELLO WORLD!";</textarea>
+		<!-- <iframe id="outputArea" class="panel" src="https://www.google.com.ua/"" frameborder="0"></iframe> -->
+		<iframe id="outputTextarea" class="panel" src=""></iframe>
+	
+	</div>
+	
+	<script type="text/javascript">
+
+		$(function () {
+		// body...
+			function update() {
+				
+				$("iframe").contents().find("html").html("<html><head><style='type/css'>" + $("#cssTextarea").val() + "</style></head><body>" + $("#htmlTextarea").val() + "</body></html>");
+				// document.getElementsById("outputTextarea").contentWindow.eval($("#javascriptTextarea").val());
+
+			}
+
+			$(".tab").hover( function () {
+
+					// $(this).css("background-color", "grey");
+					$(this).addClass("highlitedButton");
+
+				}, function () {
+					// body...
+					$(this).removeClass("highlitedButton");
+				});
+
+			$(".tab").click( function () {
+				// body...
+				$(this).toggleClass("active");
+				$(this).removeClass("highlitedButton");
+				var panel = $(this).attr("id") + "Textarea";
+				// alert(panel);
+				$("#" + panel).toggleClass("hidden");
+				// $("#" + panel).toggle();
+
+				var number = 4 - $(".hidden").length;
+				// alert(number);
+
+				$(".panel").width(($(window).width() / number) - 15);
+
+			});
+
+			$(".panel").height($(window).height() - $("#header").height() - 15);
+
+			$(".panel").width(($(window).width() / 2) - 15);
+
+			update();
+
+			$("#htmlTextarea").on('change keyup paste', function () {
+					// body...
+					update();
+					// $("iframe").contents().find("html").html("<html><head><style='type/css'>" + $("#cssTextarea").val() + "</style></head><body>" + $("#htmlTextarea").val() + "</body></html>");
+					// document.getElementsById("outputTextarea").contentWindow.eval($("#javascriptTextarea").val());
+			});
+
+		});
+	</script>
+
+</body>
+</html>
